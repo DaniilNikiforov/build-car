@@ -20,5 +20,9 @@ public class StreamApi {
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
+    public int findAllSupercarWeight() {
+        return listCar.stream().filter(e -> e.getClass() == Supercar.class)
+                .mapToInt(e -> e.getWeight()).sum();
+    }
 
 }
