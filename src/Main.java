@@ -45,6 +45,7 @@ public class Main {
         System.out.println(streamApi.findAllSupercar());
         System.out.println(streamApi.findAllSupercarWeight());
         System.out.println(streamApi.findMaxCarEnginePower());
+        System.out.println(streamApi.findAverageWeight());
     }
 
     public static void testTruckException(Truck truck) {

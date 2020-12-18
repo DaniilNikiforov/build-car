@@ -30,4 +30,10 @@ public class StreamApi {
                 .get();
     }
 
+    public double findAverageWeight() {
+        return listCar.stream()
+                .mapToInt(e -> e.getWeight())
+                .average().orElseThrow(NoSuchElementException::new);
+    }
+
 }
