@@ -3,9 +3,7 @@ package sream;
 import cars.Car;
 import cars.Supercar;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamApi {
@@ -23,6 +21,13 @@ public class StreamApi {
     public int findAllSupercarWeight() {
         return listCar.stream().filter(e -> e.getClass() == Supercar.class)
                 .mapToInt(e -> e.getWeight()).sum();
+    }
+
+    public Car findMaxCarEnginePower() {
+        return listCar
+                .stream()
+                .max(Comparator.comparingInt(x -> x.getEngine().getHorsepower()))
+                .get();
     }
 
 }

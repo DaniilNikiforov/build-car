@@ -35,14 +35,16 @@ public class Main {
         Engine truckEngine = new Engine(500, 140, 10);
         Car truck1 = new Truck(4000, "Grey", truckEngine, WheelTypes.SUMMER, 5000, false);
         Car truck2 = new Truck(5000, "White", truckEngine, WheelTypes.SUMMER, 10000, true);
-        Car supercar = parseStringToSupercar("1250,Red,Sports,370,280,5,true,2");
+        Car supercar = parseStringToSupercar("1250,Red,Sports,470,350,6,true,2");
         List<Car> list = new ArrayList<>();
         list.add(truck1);
         list.add(truck2);
         list.add(supercar);
         StreamApi streamApi = new StreamApi(list);
+
         System.out.println(streamApi.findAllSupercar());
         System.out.println(streamApi.findAllSupercarWeight());
+        System.out.println(streamApi.findMaxCarEnginePower());
     }
 
     public static void testTruckException(Truck truck) {
