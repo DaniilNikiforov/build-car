@@ -3,6 +3,8 @@ package cars;
 import enam.WheelTypes;
 import interfaces.PassengerCapacity;
 
+import java.util.Objects;
+
 public class Supercar extends Car implements PassengerCapacity {
     private boolean isCabriolet;
     private int numberOfPassengers;
@@ -33,6 +35,20 @@ public class Supercar extends Car implements PassengerCapacity {
                 .append(isCabriolet).append(", numberOfPassengers=").append(numberOfPassengers)
                 .append(super.toString());
         return stringBuilderSupercar.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supercar supercar = (Supercar) o;
+        return isCabriolet == supercar.isCabriolet &&
+                numberOfPassengers == supercar.numberOfPassengers;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isCabriolet, numberOfPassengers);
     }
 
     public static class Builder{
