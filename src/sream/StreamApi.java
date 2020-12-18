@@ -8,14 +8,23 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamApi {
-    List<Car> listCar;
+    private List<Car> listCar;
+
+    public List<Car> getListCar() {
+        return listCar;
+    }
+
+    public void setListCar(List<Car> listCar) {
+        this.listCar = listCar;
+    }
 
     public StreamApi(List<Car> listCar) {
         this.listCar = listCar;
     }
 
-    public List findAllSupercar() {
-        return Arrays.stream(listCar.toArray()).filter(e -> e.getClass() == Supercar.class)
+    public List<Car> findAllSupercar() {
+        return listCar.stream()
+                .filter(e -> e.getClass() == Supercar.class)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -54,6 +63,4 @@ public class StreamApi {
                 });
         return map;
     }
-
-
 }
