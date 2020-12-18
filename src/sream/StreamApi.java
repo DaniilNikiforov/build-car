@@ -2,6 +2,7 @@ package sream;
 
 import cars.Car;
 import cars.Supercar;
+import enam.WheelTypes;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -35,5 +36,24 @@ public class StreamApi {
                 .mapToInt(e -> e.getWeight())
                 .average().orElseThrow(NoSuchElementException::new);
     }
+
+    public Map<List<Car>, List<Car>> findMapCarWithKeyValue(WheelTypes wheelTypes) {
+        Map<List<Car>, List<Car>> map = new HashMap<>();
+
+        List<Car> correctCar = new ArrayList<>();
+        List<Car> incorrectCar = new ArrayList<>();
+        map.put(correctCar, incorrectCar);
+
+        listCar.stream().forEach(
+                e -> {
+                    if (e.getWheelType() == wheelTypes) {
+                        correctCar.add(e);
+                    } else {
+                        incorrectCar.add(e);
+                    }
+                });
+        return map;
+    }
+
 
 }

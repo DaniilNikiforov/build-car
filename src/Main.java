@@ -4,6 +4,7 @@ import exception.IncorrectEnteredValueException;
 import list.ListCars;
 import sream.StreamApi;
 
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -46,6 +47,11 @@ public class Main {
         System.out.println(streamApi.findAllSupercarWeight());
         System.out.println(streamApi.findMaxCarEnginePower());
         System.out.println(streamApi.findAverageWeight());
+
+        for (Map.Entry<List<Car>,List<Car>> entry: streamApi.findMapCarWithKeyValue(WheelTypes.SUMMER).entrySet()) {
+            System.out.println("Correct - "+entry.getKey());
+            System.out.println("Incorrect - "+entry.getValue());
+        }
     }
 
     public static void testTruckException(Truck truck) {
