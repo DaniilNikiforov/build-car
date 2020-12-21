@@ -1,10 +1,11 @@
-package cars;
+package stream;
 
+import cars.*;
 import enam.WheelTypes;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import sream.StreamApi;
+import stream.StreamApi;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package sream;
+package stream;
 
 import cars.Car;
 import cars.Supercar;
