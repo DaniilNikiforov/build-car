@@ -29,15 +29,16 @@ public class StreamApi {
     }
 
     public int findAllSupercarWeight() {
-        return listCar.stream().filter(e -> e.getClass() == Supercar.class)
-                .mapToInt(e -> e.getWeight()).sum();
+        return listCar.stream()
+                .filter(e -> e.getClass() == Supercar.class)
+                .mapToInt(e -> e.getWeight())
+                .sum();
     }
 
     public Car findMaxCarEnginePower() {
-        return listCar
-                .stream()
-                .max(Comparator.comparingInt(x -> x.getEngine().getHorsepower()))
-                .get();
+        return listCar.stream()
+                .max(Comparator.comparingInt(e -> e.getEngine().getHorsepower())) // Шукаємо максимальне значення хорсавер
+                .get(); // Повертаємо об'єкт Car
     }
 
     public double findAverageWeight() {
@@ -46,12 +47,13 @@ public class StreamApi {
                 .average().orElseThrow(NoSuchElementException::new);
     }
 
-    public Map<List<Car>, List<Car>> findMapCarWithKeyValue(WheelTypes wheelTypes) {
-        Map<List<Car>, List<Car>> map = new HashMap<>();
+    public Map<String, List<Car>> findMapCarWithKeyValue(WheelTypes wheelTypes) {
+        Map<String, List<Car>> map = new HashMap<>();
 
         List<Car> correctCar = new ArrayList<>();
         List<Car> incorrectCar = new ArrayList<>();
-        map.put(correctCar, incorrectCar);
+        map.put("correct", correctCar);
+        map.put("incorrect", incorrectCar);
 
         listCar.stream().forEach(
                 e -> {
