@@ -21,9 +21,6 @@ public class StreamApiTest {
     private static double expectedAverageWeight;
 
 
-    public StreamApiTest() {
-    }
-
     @BeforeClass
     public static void initialValue() {
         Engine truckEngine = new Engine(500, 140, 10);
