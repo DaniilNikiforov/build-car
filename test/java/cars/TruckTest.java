@@ -22,7 +22,7 @@ public class TruckTest {
     @Test
     public void setMaxLiftingCapacity_Value1000_True() {
         truck.setMaxLiftingCapacity(1000);
-        Assert.assertEquals(truck.getMaxLiftingCapacity(), 1000);
+        Assert.assertEquals(1000, truck.getMaxLiftingCapacity());
     }
 
 
